@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Kwonjun's Website</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <!-- 초기화 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        a {text-decoration: none;}
+        img {border: 0;}
+        li {list-style: none;}
+    </style>
+    <!-- 공통 -->
+    <style>
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    </style>
+    <!-- 헤더 -->
+    <style>
+        #main-header {
+            padding: 10px 5px;
+        }
+        #main-header h1 {
+            font-size: 20px;
+            font-weight: normal;
+            line-height: 27px;
+            color: #222;
+        }
+        #main-header ul {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        #main-header li {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #main-header li a {
+            color: #555;
+        }
+        #main-header li.active a {
+            color: black;
+            font-weight: 500;
+        }
+        #main-header label {
+            text-align: center;
+            float: right;
+            width: 40px;
+            height: 27px;
+            line-height: 27px;
+            color: #222;
+            border: 1px solid #222;
+            border-radius: 5px;
+        }
+
+        #checkbox {
+            display: none;
+        }
+        #checkbox + nav {
+            display: block;
+        }
+        #checkbox:checked + nav {
+            display: none;
+        }
+    </style>
+    <!-- 본문과 푸터 // 메인콘텐츠, 서브콘텐츠를 직접 건들여야함 -->
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            font-family: 'Verdana', sans-serif;
+        }
+
+        #main-content {
+            background: #ff007f;
+        }
+
+        .fav-item {
+            border: 2px dashed #ff007f;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .fav-item h2 {
+            color: #ffff00;
+        }
+        .fav-item img {
+            width: 100%;
+            border-radius: 0;
+            filter: grayscale(50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="main-header">
+        <header class="container">
+            <div>
+                <label for="checkbox">▼</label>
+                <h1>Hanbit</h1>
+            </div>
+            <input id="checkbox" checked="checked" type="checkbox">
+            <nav>
+                <ul>
+                    <!-- 자기소개 메뉴 // # 부분을 바꿔 -->
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="profile.html">프로필</a></li>
+                    <li><a href="history.html">나의 기록</a></li>
+                    <li class="active"><a href="favorite.html">취미</a></li>
+                    <li><a href="contact.html">연락처</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <div id="main-content">
+        <article class="container">
+            <h1>What I Love</h1>
+            <p>제가 무엇을 좋아하는지 알려드릴게요!</p>
+        </article>
+    </div>
+    <div id="sub-content">
+    <article class="container">
+        <h1>My Favorites</h1>
+        
+        <div class="fav-item">
+            <h2>🎬 Sports</h2>
+            <p>취미 활동: <strong>야구</strong></p>
+            <img src="images/baseball.jpg" alt="한신대학교 갱스터">
+        </div>
+
+        <div class="fav-item">
+            <h2>🍕 Food</h2>
+            <p>가장 좋아하는 음식은 닭갈비입니다.</p>
+        </div>
+
+        <div class="fav-item">
+            <h2>🎧 Music</h2>
+            <p>추천 곡을 들어보세요</p>
+            <audio controls style="width: 100%;">
+                <source src="media/pop_song.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </article>
+</div>
+    <div id="main-footer">
+        <footer class="container">
+            <div>©1991-2023 Example. All rights reserved.</div>
+        </footer>
+    </div>
+</body>
+</html>

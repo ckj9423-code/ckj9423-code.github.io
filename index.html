@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Kwonjun's Website</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <!-- 초기화 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        a {text-decoration: none;}
+        img {border: 0;}
+        li {list-style: none;}
+    </style>
+    <!-- 공통 -->
+    <style>
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    </style>
+    <!-- 헤더 -->
+    <style>
+        #main-header {
+            padding: 10px 5px;
+        }
+        #main-header h1 {
+            font-size: 20px;
+            font-weight: normal;
+            line-height: 27px;
+            color: #222;
+        }
+        #main-header ul {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        #main-header li {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        #main-header li a {
+            color: #555;
+        }
+        #main-header li.active a {
+            color: black;
+            font-weight: 500;
+        }
+        #main-header label {
+            text-align: center;
+            float: right;
+            width: 40px;
+            height: 27px;
+            line-height: 27px;
+            color: #222;
+            border: 1px solid #222;
+            border-radius: 5px;
+        }
+
+        #checkbox {
+            display: none;
+        }
+        #checkbox + nav {
+            display: block;
+        }
+        #checkbox:checked + nav {
+            display: none;
+        }
+    </style>
+    <!-- 본문과 푸터 // 메인콘텐츠, 서브콘텐츠를 직접 건들여야함 -->
+    <style>
+        #main-content {
+            background: #00afa0;
+            padding: 40px 15px 30px;
+        }
+        #main-content h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: white;
+            font-weight: 500;
+        }
+        #main-content p {
+            color: #222;
+            text-align: center;
+            color: white;
+        }
+
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+<script>
+    $(document).ready(function() {
+        var screenWidth = $(window).width() - 30;
+        if(screenWidth > 500) screenWidth = 500; 
+        
+        $('[data-role="slider"]').attr('data-width', screenWidth);
+
+        var width = screenWidth;
+        var height = $('[data-role="slider"]').attr('data-height');
+        var count = $('[data-role="slider"] div.item').length;
+        
+        $('[data-role="slider"]').css({
+            position: 'relative',
+            overflow: 'hidden',
+            width: width,
+            height: height,
+            margin: '0 auto' 
+        }).find('.container').css({
+            position: 'absolute',
+            width: count * width,
+            overflow: 'hidden'
+        }).find('.item').css({
+            width: width,
+            height: height,
+            float: 'left',
+            textAlign: 'center'
+        });
+
+        var currentPage = 0;
+        var changePage = function(){
+            $('[data-role="slider"] > .container').animate({
+                left: -currentPage * width
+            }, 500);
+        }
+        
+        $('#left-button').click(function(){
+            if(currentPage > 0) {
+                currentPage = currentPage - 1;
+                changePage();
+            }
+        });            
+        $('#right-button').click(function(){
+            if(currentPage < count - 1) {
+                currentPage = currentPage + 1;
+                changePage();
+            }
+        });            
+    });
+</script>
+
+<style>
+    .slider-box .item {
+        background-color: white;
+    }
+    .slider-box .item img {
+        width: 90%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-top: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .slider-box h3 {
+        margin-top: 15px;
+        color: #333;
+        font-size: 18px;
+    }
+    .slider-box p {
+        color: #666;
+        font-size: 14px;
+    }
+
+    .btn-group {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .btn-group button {
+        background: #333;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .btn-group button:hover {
+        background: #555;
+    }
+</style>
+</head>
+<body>
+    <div id="main-header">
+        <header class="container">
+            <div>
+                <label for="checkbox">▼</label>
+                <h1>202578125</h1>
+            </div>
+            <input id="checkbox" checked="checked" type="checkbox">
+            <nav>
+                <ul>
+                    <!-- 자기소개 메뉴 // # 부분을 바꿔 -->
+                    <li class="active"><a href="index.html">HOME</a></li>
+                    <li><a href="profile.html">프로필</a></li>
+                    <li><a href="history.html">나의 기록</a></li>
+                    <li><a href="favorite.html">취미</a></li>
+                    <li><a href="contact.html">연락처</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <div id="main-content">
+    <article class="container">
+        
+        <section style="text-align: center; margin-bottom: 30px;">
+            <h1 style="font-size: 24px; color: white; margin-bottom: 10px;">
+                Welcome to Kwonjun's Space
+            </h1>
+            <p style="color: #eee; font-size: 14px; line-height: 1.6;">
+                안녕하세요! <b>AISW 학과 Choi Kwonjun</b>의<br>
+                모바일 웹 포트폴리오에 오신 것을 환영합니다.<br>
+                아래 슬라이드를 넘겨 저의 하이라이트를 확인해보세요.
+            </p>
+        </section>
+
+        <div class="slider-box">
+            <div data-role="slider" data-width="300" data-height="350">
+                <div class="container">
+                    <div class="item">
+                        <img src="image_0.jpg" alt="머신러닝 학습">
+                        <h3>AISW Major</h3>
+                        <p>인공지능과 소프트웨어를 공부합니다.</p>
+                    </div>
+                    <div class="item">
+                        <img src="image_1.jpg" alt="손글씨 취미">
+                        <h3>My Hobby</h3>
+                        <p>손글씨와 독서를 즐겨합니다.</p>
+                    </div>
+                    <div class="item">
+                        <div style="width:90%; height:200px; background:linear-gradient(45deg, #ff9a9e, #fad0c4); margin:20px auto; border-radius:10px; line-height:200px; color:white; font-weight:bold; font-size:20px;">
+                            Dream & Future
+                        </div>
+                        <h3>Creative Developer</h3>
+                        <p>상상을 현실로 만드는 개발자가 꿈입니다.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="btn-group">
+                <button id="left-button">← Prev</button>
+                <button id="right-button">Next →</button>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 20px;">
+            <p style="color: white; margin-bottom: 10px;">🎵 BGM: Main Theme</p>
+            <audio controls style="width: 80%; height: 30px;">
+                <source src="media/main_bgm.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+    </article>
+</div>
+    <div id="sub-content">
+    <article class="container">
+        <h1>Explore More</h1>
+        <p style="text-align: center; color: #666; margin-bottom: 20px;">
+            원하는 메뉴를 터치하여 자세한 내용을 확인하세요.
+        </p>
+
+        <div class="quick-menu-grid">
+            
+            <a href="profile.html" class="menu-card">
+                <div class="icon">👨‍💻</div>
+                <div class="text">
+                    <h3>Profile</h3>
+                    <p>저를 소개합니다</p>
+                </div>
+            </a>
+
+            <a href="history.html" class="menu-card">
+                <div class="icon">📅</div>
+                <div class="text">
+                    <h3>History</h3>
+                    <p>성장과 배움의 기록</p>
+                </div>
+            </a>
+
+            <a href="favorite.html" class="menu-card">
+                <div class="icon">⭐</div>
+                <div class="text">
+                    <h3>Favorites</h3>
+                    <p>취미와 관심사</p>
+                </div>
+            </a>
+
+            <a href="contact.html" class="menu-card">
+                <div class="icon">📞</div>
+                <div class="text">
+                    <h3>Contact</h3>
+                    <p>연락처 및 방명록</p>
+                </div>
+            </a>
+
+        </div>
+    </article>
+</div>
+</html>
