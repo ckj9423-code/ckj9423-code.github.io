@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Kwonjun's Website</title>
@@ -91,6 +91,14 @@
         }
 
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#showContactBtn").click(function(){
+                $("#hiddenInfo").slideToggle("slow"); // 천천히 내려오는 효과
+            });
+        });
+</script>
 </head>
 <body>
     <div id="main-header">
